@@ -38,7 +38,7 @@ public class Checkmagic {
 			
 		}
 
-		for (int n =matrix.length-1;n>-1;n--) { // checks bottom left
+		for (int n =matrix.length-1;n>=0;n--) { // checks bottom left
 														// diagonal
 			counters[3] += matrix[n][o];			
 			o++;
