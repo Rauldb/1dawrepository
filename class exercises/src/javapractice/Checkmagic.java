@@ -19,11 +19,7 @@ public class Checkmagic {
 
 		int[] counters = new int[4];
 		boolean ismagic = true;
-		int sumcounter=0;
-		counters[0] = 0;
-		counters[1] = 0;
-		counters[2] = 0;
-		counters[3] = 0;		
+		int sumcounter=0;				
 		int m = 0;
 		int o = 0;
 
