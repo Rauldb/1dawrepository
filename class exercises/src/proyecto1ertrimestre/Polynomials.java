@@ -1,32 +1,66 @@
 package proyecto1ertrimestre;
 
+import java.lang.reflect.Array;
 import java.util.Scanner;
+import java.util.ArrayList;
+
+
 
 public class Polynomials {
 
 	public static void main(String[] args) {
 
-		int[] testing = { 4, 0, 2, 0, 5 };
-		System.out.println(display(testing));
-
+		// int[] testing = { 4, 0, 2, 0, 5 };
+		// System.out.println(display(testing));
+		
 		int option;
+		boolean polyinit = false;
+		ArrayList<int[]> list=new ArrayList<int[]>();
 
 		do {
 			option = menu();
 			switch (option) {
 			case 1:
-				enterpolynomial();
+				int[] buffer=enterpolynomial();
+				list.add(buffer);
+				polyinit = true;
 				break;
+
 			case 2:
-				System.out.println("Enter the first polynomial");
-				int a[] = enterpolynomial();
-				System.out.println("Enter the second polynomial");
-				int b[] = enterpolynomial();
-				System.out.println("holaketal " + display(sum(a, b)));
+				if (!polyinit) {
+					System.out.println("You didn't enter any polynomials yet");
+					break;		
+					}
+				if(list.size()<2){
+					System.out.println("You need to introduce at least 2 polynomials so you can sum them");
+					break;
+				}
+				for(int i=0;i<list.size();i++){
+					int[] buffer2=(int[])list.get(i);
+					System.out.println((i+1)+" - "+display(buffer2));
+					}
+				System.out.println("Select 2 polynomials to sum");
+				System.out.println("Select polynomial 1");
+				int option1=integerinput();
+				System.out.println("Select polynomial 2");
+				int option2=integerinput();
+				int[] buffera=list.get(option1);
+				int[] bufferb=list.get(option2);
+				
+				
+				
 				break;
 			case 3:
 				break;
 			case 4:
+				if (!polyinit) {
+					System.out.println("You didn't enter any polynomials yet");
+					break;		
+					}
+				for(int i=0;i<list.size();i++){
+					int[] buffer2=(int[])list.get(i);
+					System.out.println((i+1)+" - "+display(buffer2));
+					}								
 				break;
 
 			}
@@ -57,7 +91,7 @@ public class Polynomials {
 		int monomial;
 		System.out.println("Enter the grade of the polynomial");
 		grade = input.nextInt();
-		int[] polynomial = new int[grade];
+		int[] polynomial = new int[grade+1];
 		for (int i = 0; i < polynomial.length; i++) {
 			System.out.println("Enter the grade " + i
 					+ " monomial of the polynomial");
@@ -65,6 +99,7 @@ public class Polynomials {
 			polynomial[i] = monomial;
 		}
 		return polynomial;
+
 	}
 
 	public static int[] sum(int a[], int b[]) {
@@ -92,7 +127,7 @@ public class Polynomials {
 	public static String display(int[] polynomial) {
 
 		String display = "";
-		for (int i = polynomial.length - 1; i <= 0; i--) {
+		for (int i = polynomial.length - 1; i >= 0; i--) {
 
 			if (polynomial[i] != 0) {
 				if (i == 0)
@@ -103,6 +138,17 @@ public class Polynomials {
 		}
 		return display;
 
+	}
+	
+	public static int integerinput(){
+		Scanner input=new Scanner(System.in);
+		while(!input.hasNextInt() ) {
+			System.out.println("Enter an integer please");
+			input.next();
+		}
+		
+		return input.nextInt();
+		
 	}
 
 }

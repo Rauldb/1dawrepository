@@ -10,7 +10,7 @@ public class antitontos {
 		
 				
 		while(!input.hasNextInt() ) {
-			System.out.println("Introduce un entero so anormal");
+			System.out.println("Enter an integer please");
 			input.next();
 		}
 			numero=input.nextInt();
