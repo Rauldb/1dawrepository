@@ -118,7 +118,8 @@ public class Polynomials {
 			}
 
 		} while (option != 0);
-
+		
+				
 	}
 
 	public static int menu() { // Menu method
@@ -230,6 +231,7 @@ public class Polynomials {
 			input.next();
 		}
 
+		input.close();
 		return input.nextInt();
 
 	}

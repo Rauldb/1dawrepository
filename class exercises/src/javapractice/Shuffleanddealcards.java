@@ -13,6 +13,7 @@ public class Shuffleanddealcards {
 		String[] draw=new String[4];
 		int i=0;
 		int usedcards=0;
+		Scanner userinput=new Scanner(System.in);	
 		
 		for(i=0;i<cards.length;i++) cards[i]=i+1;
 		for(i=0;i<cards.length;i++) System.out.println(cards[i]);
@@ -20,8 +21,7 @@ public class Shuffleanddealcards {
 		System.out.println("1 - Shuffle the cards");
 		System.out.println("2 - Draw 4 cards");
 		System.out.println("0 - Exit");
-		Scanner userinput=new Scanner(System.in);				
-			while(!userinput.hasNextInt() ) {
+		while(!userinput.hasNextInt() ) {
 			System.out.println("Please enter an integer");
 			userinput.next();
 			}
@@ -50,10 +50,10 @@ public class Shuffleanddealcards {
 				
 			}
 					
-			}
+			} 
 					
 	
-		
+	userinput.close();
 	}
 	
 

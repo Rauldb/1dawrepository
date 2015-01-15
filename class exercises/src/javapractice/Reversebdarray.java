@@ -27,7 +27,7 @@ public class Reversebdarray {
 				for(int k=0;i<B.length;i++){
 					
 					for(int l=0;l<B[0].length;l++){
-						//System.out.println(B[k][l]);
+						System.out.println(B[k][l]);
 					}
 					
 				} 
