@@ -4,6 +4,7 @@ public class Monomial {
 	
 	private int coefficient;
 	private int grade;
+	private boolean ispositive;
 	
 	
 	Monomial(String mono){
@@ -12,14 +13,23 @@ public class Monomial {
 		mono.trim();
 		mono.toLowerCase();
 		boolean xfound=false;
-			if(mono.indexOf("x")!=-1){
+		
+		if(mono.indexOf("-")!=-1){
+			ispositive=false;
+		}
+		else{
+			ispositive=true;
+		}
+			
+		
+		if(mono.indexOf("x")!=-1){
 				x=mono.indexOf("x");
 				xfound=true;
 			}
 			
 			if(xfound==false){
 				grade=1;
-				coefficient=Integer.parseInt(mono.substring(0,1));
+				coefficient=Integer.parseInt(mono.substring(0,1));				
 			}
 			else{
 				coefficient=Integer.parseInt(mono.substring(0,x));
@@ -41,6 +51,12 @@ public class Monomial {
 	
 	int getgrade(){
 		return grade;
+	}
+	
+	String getsymbol(){
+		if (ispositive) return "+";
+		else return "-";
+		
 	}
 	
 		
