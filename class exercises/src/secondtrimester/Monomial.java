@@ -53,6 +53,14 @@ public class Monomial {
 		return grade;
 	}
 	
+	void setCoefficient(int newco){
+		this.coefficient=newco;
+	}
+	
+	void setGrade(int newgra){
+		this.grade=newgra;
+	}
+	
 	String getsymbol(){
 		if (ispositive) return "+";
 		else return "-";

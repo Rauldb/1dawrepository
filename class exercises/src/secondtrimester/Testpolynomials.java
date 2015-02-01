@@ -16,6 +16,7 @@ public class Testpolynomials {
 		System.out.println(poly.showmonomials());
 		Polynomial stringpoly=new Polynomial("-2x2+3x+5");
 		System.out.println(stringpoly.showmonomials());
+		// System.out.println(poly.sum(stringpoly)); FIXME
 		
 		
 

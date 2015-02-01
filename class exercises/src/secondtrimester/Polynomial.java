@@ -4,9 +4,14 @@ import java.util.ArrayList;
 
 public class Polynomial {
 
-	ArrayList<Monomial> monomials = new ArrayList<Monomial>();
-	ArrayList<String> smonomials = new ArrayList<String>();
+	private ArrayList<Monomial> monomials = new ArrayList<Monomial>();
+	private ArrayList<String> smonomials = new ArrayList<String>();
 	int symbolindex = 0;
+	
+	
+	Polynomial(){
+		
+	}
 
 	Polynomial(String poly) {
 		String substring = "";
@@ -57,5 +62,15 @@ public class Polynomial {
 		}
 		return output;
 	}
+	
+	/*ArrayList<Monomial> sum (Polynomial poly){
+		
+			TODO	
+		
+		
+		}*/
+	
 
 }
+
+
