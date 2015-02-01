@@ -14,6 +14,9 @@ public class Testpolynomials {
 		list.add(new Monomial(userinput));
 		Polynomial poly=new Polynomial(list);
 		System.out.println(poly.showmonomials());
+		Polynomial stringpoly=new Polynomial("-2x2+3x+5");
+		System.out.println(stringpoly.showmonomials());
+		
 		
 
 	}

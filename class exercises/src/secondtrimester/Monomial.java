@@ -28,8 +28,8 @@ public class Monomial {
 			}
 			
 			if(xfound==false){
-				grade=1;
-				coefficient=Integer.parseInt(mono.substring(0,1));				
+				grade=0;
+				coefficient=Integer.parseInt(mono.substring(0,mono.length()));				
 			}
 			else{
 				coefficient=Integer.parseInt(mono.substring(0,x));
