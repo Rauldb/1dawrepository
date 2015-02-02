@@ -1,6 +1,7 @@
 package secondtrimester;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Polynomial {
 
@@ -8,7 +9,7 @@ public class Polynomial {
 	private ArrayList<String> smonomials = new ArrayList<String>();
 	int symbolindex = 0;
 	
-	
+		
 	Polynomial(){
 		
 	}
@@ -63,12 +64,21 @@ public class Polynomial {
 		return output;
 	}
 	
-	/*ArrayList<Monomial> sum (Polynomial poly){
+	/*Polynomial sum (Polynomial poly){
 		
-			TODO	
+			ArrayList<Monomial> monomialscopy= new ArrayList<Monomial>();
+				for(int i=0;i<this.monomials.size();i++){
+					for(int j=0;j<poly.monomials.size();j++){
+						if(this.monomials.get(i).getgrade()==poly.monomials.get(j).getgrade()){
+							monomialscopy.add(new Monomial(this.monomials.get(i).getcoefficient()+poly.monomials.get(j).getcoefficient(),this.monomials.get(i).getgrade()));
+						}
+					}
+				}
+								
+			}FIXME*/
 		
 		
-		}*/
+		
 	
 
 }

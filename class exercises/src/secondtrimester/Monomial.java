@@ -7,7 +7,12 @@ public class Monomial {
 	private boolean ispositive;
 	
 	
-	Monomial(String mono){
+  	public Monomial (int coeff, int grade){
+		this.coefficient=coeff;
+		this.grade=grade;
+	}
+	
+	public Monomial(String mono){
 		
 		int x=0;
 		mono.trim();
@@ -42,26 +47,32 @@ public class Monomial {
 			
 			
 		}
-					
 	
 	
-	int getcoefficient(){
+	/*public Monomial sum(Monomial other){
+		if(this.grade==other.grade){
+			return new Monomial(this.coefficient+other.coefficient,this.grade);
+		}
+	}FIXME*/
+	
+	
+	public int getcoefficient(){
 		return coefficient;
 	}
 	
-	int getgrade(){
+	public int getgrade(){
 		return grade;
 	}
 	
-	void setCoefficient(int newco){
+	public void setCoefficient(int newco){
 		this.coefficient=newco;
 	}
 	
-	void setGrade(int newgra){
+	public void setGrade(int newgra){
 		this.grade=newgra;
 	}
 	
-	String getsymbol(){
+	public String getsymbol(){
 		if (ispositive) return "+";
 		else return "-";
 		
