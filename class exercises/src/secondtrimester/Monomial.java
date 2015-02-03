@@ -1,6 +1,6 @@
 package secondtrimester;
 
-public class Monomial {
+public class Monomial implements Comparable<Monomial>{
 	
 	private int coefficient;
 	private int grade;
@@ -76,6 +76,11 @@ public class Monomial {
 		if (ispositive) return "+";
 		else return "-";
 		
+	}
+	
+	public int compareTo(Monomial anothermonomial){
+		int comparemono=anothermonomial.getgrade();
+		return comparemono-this.grade;
 	}
 	
 		

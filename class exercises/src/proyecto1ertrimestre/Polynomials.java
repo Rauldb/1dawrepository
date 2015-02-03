@@ -4,6 +4,8 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Polynomials {
+	
+	static Scanner input = new Scanner(System.in);
 
 	public static void main(String[] args) {
 
@@ -119,7 +121,7 @@ public class Polynomials {
 
 		} while (option != 0);
 		
-				
+		input.close();			
 	}
 
 	public static int menu() { // Menu method
@@ -225,14 +227,15 @@ public class Polynomials {
 										// anything that isn't a int value, it
 										// solves most user generated
 										// exceptions.
-		Scanner input = new Scanner(System.in);
-		while (!input.hasNextInt()) {
+		
+			while (!input.hasNextInt()) {
 			System.out.println("Enter an integer please");
 			input.next();
 		}
 
-		input.close();
-		return input.nextInt();
+		int number=input.nextInt();
+		return number;
+		
 
 	}
 

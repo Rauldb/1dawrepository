@@ -7,17 +7,15 @@ public class Polynomial {
 
 	private ArrayList<Monomial> monomials = new ArrayList<Monomial>();
 	private ArrayList<String> smonomials = new ArrayList<String>();
+	int grade = 0;
 	int symbolindex = 0;
-	
-		
-	Polynomial(){
-		
-	}
 
 	Polynomial(String poly) {
 		String substring = "";
 
-		for (int i = 0; i < poly.length(); i++) { // For loop that parses the String into substring that contain monomials
+		for (int i = 0; i < poly.length(); i++) { // For loop that parses the
+													// String into substring
+													// that contain monomials
 			if (i == poly.length() - 1) {
 				substring = poly.substring(symbolindex, poly.length());
 				smonomials.add(substring);
@@ -31,17 +29,21 @@ public class Polynomial {
 
 			}
 		}
-		
-		for(int i=0;i<smonomials.size();i++){ // for loop that instantiates monomial objects from a String type input (smonomials stringlist)
+
+		for (int i = 0; i < smonomials.size(); i++) { // for loop that
+														// instantiates monomial
+														// objects from a String
+														// type input
+														// (smonomials
+														// stringlist)
 			monomials.add(new Monomial(smonomials.get(i)));
 		}
-		
-		
-
+		Collections.sort(monomials);
 	}
 
 	Polynomial(ArrayList<Monomial> monomials) {
 		this.monomials = monomials;
+		Collections.sort(monomials);
 	}
 
 	ArrayList<String> getmonomialstring() {
@@ -51,36 +53,57 @@ public class Polynomial {
 	String showmonomials() {
 		String output = "";
 		for (int i = 0; i < monomials.size(); i++) {
-			if (monomials.get(i).getcoefficient() > 0)		{
-				output += "+";
+			if(i!=0 && monomials.get(i).getcoefficient()>0) output+="+";
+			if (monomials.get(i).getgrade() == 0) {
+				output += (monomials.get(i).getcoefficient()+" ");
+			} else {
+				if (monomials.get(i).getgrade() == 1) {
+					output += (monomials.get(i).getcoefficient() + "x"+" ");
+				} else {
+					output += (monomials.get(i).getcoefficient() + "x" + monomials
+							.get(i).getgrade()+" ");
+				}
 			}
-			if(monomials.get(i).getgrade()==0){
-				output+=(monomials.get(i).getcoefficient());
-			}else{
-				output += (monomials.get(i).getcoefficient() + "x"+ monomials.get(i).getgrade() + " ");
-			}
-			
+
 		}
 		return output;
 	}
+
 	
-	/*Polynomial sum (Polynomial poly){
+	Polynomial sum(Polynomial poly) {
 		
-			ArrayList<Monomial> monomialscopy= new ArrayList<Monomial>();
-				for(int i=0;i<this.monomials.size();i++){
-					for(int j=0;j<poly.monomials.size();j++){
-						if(this.monomials.get(i).getgrade()==poly.monomials.get(j).getgrade()){
-							monomialscopy.add(new Monomial(this.monomials.get(i).getcoefficient()+poly.monomials.get(j).getcoefficient(),this.monomials.get(i).getgrade()));
-						}
-					}
+		ArrayList<Monomial> polycopy=new ArrayList<Monomial>();
+		boolean duplicate=false;
+		
+		for(int i=0;i<this.monomials.size();i++){
+			for(int j=0;j<poly.monomials.size();j++){
+				if(this.monomials.get(i).getgrade()==poly.monomials.get(j).getgrade()){
+					polycopy.add(new Monomial(this.monomials.get(i).getcoefficient()+
+							poly.monomials.get(j).getcoefficient(),
+							this.monomials.get(i).getgrade()));					
 				}
-								
-			}FIXME*/
+			}
+		}
 		
+		for (int i=0;i<this.monomials.size();i++){
+			for(int j=0;j<polycopy.size();j++){
+				if(this.monomials.get(i).getgrade()==polycopy.get(j).getgrade()) duplicate=true;
+			}
+			if(!duplicate) polycopy.add(this.monomials.get(i));
+			duplicate=false;
+		}
 		
+		for (int i=0;i<poly.monomials.size();i++){
+			for(int j=0;j<polycopy.size();j++){
+				if(poly.monomials.get(i).getgrade()==polycopy.get(j).getgrade()) duplicate=true;
+			}
+			if(!duplicate) polycopy.add(poly.monomials.get(i));
+			duplicate=false;
+		}
 		
-	
+		return new Polynomial(polycopy);
+
+	}
+	 
 
 }
-
-
