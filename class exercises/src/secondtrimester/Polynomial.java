@@ -7,10 +7,12 @@ public class Polynomial {
 
 	private ArrayList<Monomial> monomials = new ArrayList<Monomial>();
 	private ArrayList<String> smonomials = new ArrayList<String>();
-	int grade = 0;
-	int symbolindex = 0;
+	private int grade = 0;
+	private int symbolindex = 0;
 
-	Polynomial(String poly) {
+	// CONSTRUCTORS
+
+	public Polynomial(String poly) {
 		String substring = "";
 
 		for (int i = 0; i < poly.length(); i++) { // For loop that parses the
@@ -39,29 +41,41 @@ public class Polynomial {
 			monomials.add(new Monomial(smonomials.get(i)));
 		}
 		Collections.sort(monomials);
+		grade = monomials.get(0).getgrade();
 	}
 
-	Polynomial(ArrayList<Monomial> monomials) {
+	// METHODS - GETTER SETTERS
+
+	public Polynomial(ArrayList<Monomial> monomials) {
 		this.monomials = monomials;
 		Collections.sort(monomials);
+		grade = monomials.get(0).getgrade();
 	}
 
-	ArrayList<String> getmonomialstring() {
+	public int getGrade() {
+		return grade;
+	}
+
+	public ArrayList<String> getMonomialString() {
 		return smonomials;
 	}
 
-	String showmonomials() {
+	// METHODS - FUNCTIONALITY
+
+	public String showMonomials() { // Creates and return a String with similar
+									// to real world polynomial format
 		String output = "";
 		for (int i = 0; i < monomials.size(); i++) {
-			if(i!=0 && monomials.get(i).getcoefficient()>0) output+="+";
+			if (i != 0 && monomials.get(i).getcoefficient() > 0)
+				output += "+";
 			if (monomials.get(i).getgrade() == 0) {
-				output += (monomials.get(i).getcoefficient()+" ");
+				output += (monomials.get(i).getcoefficient() + " ");
 			} else {
 				if (monomials.get(i).getgrade() == 1) {
-					output += (monomials.get(i).getcoefficient() + "x"+" ");
+					output += (monomials.get(i).getcoefficient() + "x" + " ");
 				} else {
-					output += (monomials.get(i).getcoefficient() + "x" + monomials
-							.get(i).getgrade()+" ");
+					output += (monomials.get(i).getcoefficient() + "x"
+							+ monomials.get(i).getgrade() + " ");
 				}
 			}
 
@@ -69,41 +83,58 @@ public class Polynomial {
 		return output;
 	}
 
-	
-	Polynomial sum(Polynomial poly) {
-		
-		ArrayList<Monomial> polycopy=new ArrayList<Monomial>();
-		boolean duplicate=false;
-		
-		for(int i=0;i<this.monomials.size();i++){
-			for(int j=0;j<poly.monomials.size();j++){
-				if(this.monomials.get(i).getgrade()==poly.monomials.get(j).getgrade()){
-					polycopy.add(new Monomial(this.monomials.get(i).getcoefficient()+
-							poly.monomials.get(j).getcoefficient(),
-							this.monomials.get(i).getgrade()));					
+	public Polynomial sum(Polynomial poly) { // Sums 2 polynomials
+
+		ArrayList<Monomial> polycopy = new ArrayList<Monomial>();
+		boolean duplicate = false;
+
+		for (int i = 0; i < this.monomials.size(); i++) { // Sums monomials of
+															// the same grade
+			for (int j = 0; j < poly.monomials.size(); j++) {
+				if (this.monomials.get(i).getgrade() == poly.monomials.get(j)
+						.getgrade()) {
+					polycopy.add(new Monomial(this.monomials.get(i)
+							.getcoefficient()
+							+ poly.monomials.get(j).getcoefficient(),
+							this.monomials.get(i).getgrade()));
 				}
 			}
 		}
-		
-		for (int i=0;i<this.monomials.size();i++){
-			for(int j=0;j<polycopy.size();j++){
-				if(this.monomials.get(i).getgrade()==polycopy.get(j).getgrade()) duplicate=true;
+
+		for (int i = 0; i < this.monomials.size(); i++) { // Adds monomials in
+															// the original
+															// Polynomial that
+															// can't be summed
+															// to the resulting
+															// Polynomial
+			for (int j = 0; j < polycopy.size(); j++) {
+				if (this.monomials.get(i).getgrade() == polycopy.get(j)
+						.getgrade())
+					duplicate = true;
 			}
-			if(!duplicate) polycopy.add(this.monomials.get(i));
-			duplicate=false;
+			if (!duplicate)
+				polycopy.add(this.monomials.get(i));
+			duplicate = false;
 		}
-		
-		for (int i=0;i<poly.monomials.size();i++){
-			for(int j=0;j<polycopy.size();j++){
-				if(poly.monomials.get(i).getgrade()==polycopy.get(j).getgrade()) duplicate=true;
+
+		for (int i = 0; i < poly.monomials.size(); i++) { // Same as above, but
+															// this one adds
+															// monomials from
+															// the polynomial
+															// that
+															// is summed
+			for (int j = 0; j < polycopy.size(); j++) {
+				if (poly.monomials.get(i).getgrade() == polycopy.get(j)
+						.getgrade())
+					duplicate = true;
 			}
-			if(!duplicate) polycopy.add(poly.monomials.get(i));
-			duplicate=false;
+			if (!duplicate)
+				polycopy.add(poly.monomials.get(i));
+			duplicate = false;
 		}
-		
+
 		return new Polynomial(polycopy);
 
 	}
-	 
 
 }

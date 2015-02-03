@@ -6,8 +6,8 @@ public class Testmonomial {
 		// TODO Auto-generated method stub
 		
 		Monomial test=new Monomial("-5x2");
-		System.out.println(test.getcoefficient());
-		System.out.println(test.getgrade());
+		System.out.println("Monomial coefficient : "+test.getcoefficient());
+		System.out.println("Monomial grade : "+test.getgrade());
 
 	}
 
