@@ -73,6 +73,16 @@ public class Monomial implements Comparable<Monomial> {
 
 	// METHODS - FUNCTIONALITY
 	
+	
+	public Monomial sum(Monomial anothermono){ // FIXME Change code to throw an exception if it can't be summed
+		return new Monomial(this.coefficient+anothermono.coefficient,this.grade); 
+	}
+	
+	public void sumThis(Monomial anothermono){	// FIXME  Ditto
+		this.coefficient+=anothermono.coefficient;		
+	}
+	
+	
 	@Override
 	public int compareTo(Monomial anothermonomial) { // Custom sorting method
 														// for Monomial objects
