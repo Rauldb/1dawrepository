@@ -111,7 +111,7 @@ public class Polynomial {
 
 
 
-// Unreliable and too long sum method, reference only, don't use
+// First implementation, unreliable and too long sum method, reference only, don't use
 
 /* public Polynomial shittysum(Polynomial poly) { // Sums 2 polynomials
 
