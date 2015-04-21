@@ -1,4 +1,4 @@
-package thirdtrimester;
+package hangedman;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

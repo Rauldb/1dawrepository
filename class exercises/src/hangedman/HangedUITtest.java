@@ -1,4 +1,4 @@
-package thirdtrimester;
+package hangedman;
 
 public class HangedUITtest {
 

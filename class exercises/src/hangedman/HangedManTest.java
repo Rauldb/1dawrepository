@@ -1,4 +1,4 @@
-package thirdtrimester;
+package hangedman;
 
 import java.io.IOException;
 import java.util.Scanner;
