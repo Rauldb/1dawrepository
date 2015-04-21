@@ -48,7 +48,7 @@ public class HangedUI extends JFrame implements ActionListener {
 		
 		
 		
-		inst=new JLabel("Try to guess the word");
+		inst=new JLabel("Try to guess the word, enter a letter");
 		userinput=new JTextField(10);
 		userinput.addActionListener(this);		
 		gamestate=new JTextArea(5,10);
