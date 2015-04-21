@@ -41,7 +41,12 @@ public class HangedMan {
 	}
 
 	public String getMaskWord() {
-		return gamestate;
+		String mask="";
+		for(int i=0;i<gamestate.length();i++){
+			mask+=gamestate.charAt(i);
+			mask+=" ";
+		}
+		return mask;
 	}
 
 	public String getIntroduced() {
@@ -99,7 +104,7 @@ public class HangedMan {
 	}
 	
 	public boolean youlose(){
-		if(mistakes>6) return true;
+		if(mistakes==6) return true;
 		else return false;
 	}
 	
