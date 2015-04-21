@@ -62,7 +62,7 @@ public class HangedMan {
 	public String initword() {
 		ArrayList<String> listofwords = new ArrayList<String>();
 		try{
-		File words=new File("src/thirdtrimester/words.txt");
+		File words=new File("src/hangedman/words.txt");
 		Scanner wordscanner=new Scanner(words);
 		wordscanner.useDelimiter(",");
 		Random rand=new Random();
