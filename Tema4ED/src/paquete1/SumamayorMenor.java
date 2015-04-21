@@ -9,9 +9,9 @@ public class SumamayorMenor {
 
 	public static void main(String[] args) {
 // TODO Auto-generated method stub
-int tamaño = 3;
-String[] nombre = new String[tamaño];
-int[] sueldo = new int[tamaño];
+int size = 3;
+String[] nombre = new String[size];
+int[] sueldo = new int[size];
 Scanner leernombre = new Scanner(System.in);
 Scanner leersueldo = new Scanner(System.in);
 // leemos los datos

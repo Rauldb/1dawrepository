@@ -1,11 +1,12 @@
-package thirdtrismester;
+package thirdtrimester;
 
-public class HangedTest {
+public class HangedUITtest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
 		new HangedUI();
+		
 
 	}
 
