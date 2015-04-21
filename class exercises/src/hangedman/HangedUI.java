@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class HangedUI extends JFrame implements ActionListener {
+public class HangedUI extends JFrame implements ActionListener { // GUI class
 	
 	
 	private JPanel textpanel;
@@ -44,10 +44,7 @@ public class HangedUI extends JFrame implements ActionListener {
 		textpanel.setBackground(Color.GRAY);
 		drawp = new DrawPanel(0);
 		drawp.setSize(400, 600);
-		drawp.setBackground(Color.WHITE);
-		
-		
-		
+		drawp.setBackground(Color.WHITE);		
 		inst=new JLabel("Try to guess the word, enter a letter");
 		userinput=new JTextField(10);
 		userinput.addActionListener(this);		

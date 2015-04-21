@@ -5,7 +5,7 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
-public class DrawPanel extends JPanel {
+public class DrawPanel extends JPanel { // Panel where we draw the HangedMan doodle
 	
 	private int mistakes=0;
 	

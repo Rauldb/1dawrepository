@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-public class HangedMan {
+public class HangedMan { // Internal logic class 
 
 	private String word;
 	private char[] gamestatearray;
@@ -14,7 +14,7 @@ public class HangedMan {
 	private String introduced;
 	private int mistakes;
 
-	public HangedMan() {
+	public HangedMan() { // Default constructor taking a random word from a dictionary file
 		this.word = initword();
 		mistakes=0;
 		gamestatearray=new char[word.length()];
@@ -24,7 +24,7 @@ public class HangedMan {
 		gamestate=String.valueOf(gamestatearray);
 	}
 
-	public HangedMan(String word) {
+	public HangedMan(String word) { // Constructor that uses a user defined word
 		this.word = word;
 		mistakes=0;
 		gamestatearray=new char[word.length()];
@@ -59,12 +59,12 @@ public class HangedMan {
 	
 	// FUNCTIONALITY AND BEHAVIOUR
 	
-	public String initword() {
+	public String initword() { // Reads a random word from words.txt
 		ArrayList<String> listofwords = new ArrayList<String>();
-		try{
+		try{ // We handle the IOException 
 		File words=new File("src/hangedman/words.txt");
 		Scanner wordscanner=new Scanner(words);
-		wordscanner.useDelimiter(",");
+		wordscanner.useDelimiter(","); // We use a comma to separate words
 		Random rand=new Random();
 				
 		while(wordscanner.hasNext()){		
@@ -81,7 +81,7 @@ public class HangedMan {
 		
 	}
 	
-	public boolean checkLetter(char letter){
+	public boolean checkLetter(char letter){ // Look for letter occurrences on the stored word, updates game state 
 		boolean found=false;
 		for(int i=0;i<this.word.length();i++){
 				if(letter==this.word.charAt(i)){

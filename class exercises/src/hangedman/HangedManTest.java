@@ -3,7 +3,7 @@ package hangedman;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class HangedManTest {
+public class HangedManTest { // Internal logic test, doesn't use the GUI.
 
 	public static void main(String[] args) {
 		
